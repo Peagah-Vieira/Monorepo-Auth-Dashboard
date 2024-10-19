@@ -10,11 +10,11 @@
     "cssVariables": false,
     "prefix": ""
   },
-  "aliases": {
-    "components": "@/components",
-    "utils": "@/lib/utils",
-    "ui": "@/components/ui",
-    "lib": "@/lib",
-    "hooks": "@/hooks"
-  }
+    "aliases": {
+        "components": "@/resources/js/Components",
+        "utils": "@/resources/js/Components/utils",
+        "ui": "@/resources/js/Components/ui",
+        "lib": "@/resources/js/Components/lib",
+        "hooks": "@/resources/js/Components/hooks"
+    }
 }
