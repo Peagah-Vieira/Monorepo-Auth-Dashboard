@@ -106,6 +106,7 @@ export default function ResetPasswordForm({
             <SubmitButton
                 type="submit"
                 disabled={processing}
+                variant={"default"}
                 label={processing ? <LoadingSpinner /> : "Reset Password"}
             />
         </form>

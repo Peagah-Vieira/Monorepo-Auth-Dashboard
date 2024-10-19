@@ -33,6 +33,7 @@ export default function VerifyEmailForm() {
             <SubmitButton
                 type="submit"
                 disabled={processing}
+                variant={"default"}
                 label={
                     processing ? <LoadingSpinner /> : "Send Verification Link"
                 }

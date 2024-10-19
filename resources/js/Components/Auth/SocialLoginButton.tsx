@@ -2,7 +2,8 @@ import { ButtonHTMLAttributes, ReactNode } from "react";
 import { Button } from "@/Components/ShadcnUI/button";
 import { cn } from "@/lib/utils";
 
-interface SubmitButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface SocialLoginButtonProps
+    extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     disabled?: boolean;
     type?: "button" | "submit" | "reset";
@@ -16,23 +17,26 @@ interface SubmitButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
         | null
         | undefined;
     label: ReactNode;
+    onClick?: () => void;
 }
 
-export const SubmitButton = ({
+export default function SocialLoginButton({
     className,
     disabled,
     type,
     label,
     variant,
-}: SubmitButtonProps) => {
+    onClick,
+}: SocialLoginButtonProps) {
     return (
         <Button
             variant={variant}
             className={cn("w-full", className)}
             disabled={disabled}
             type={type}
+            onClick={onClick}
         >
             {label}
         </Button>
     );
-};
+}

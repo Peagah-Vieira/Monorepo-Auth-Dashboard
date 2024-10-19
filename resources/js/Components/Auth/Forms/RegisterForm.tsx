@@ -122,6 +122,7 @@ export default function RegisterForm() {
             <SubmitButton
                 type="submit"
                 disabled={processing}
+                variant={"default"}
                 label={processing ? <LoadingSpinner /> : "Register"}
             />
             <div className="mt-4 text-center text-sm">

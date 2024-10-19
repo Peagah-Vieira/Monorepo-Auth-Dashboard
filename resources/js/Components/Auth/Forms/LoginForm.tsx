@@ -96,6 +96,7 @@ export default function LoginForm() {
             <SubmitButton
                 type="submit"
                 disabled={processing}
+                variant={"default"}
                 label={processing ? <LoadingSpinner /> : "Login"}
             />
             <div className="mt-4 text-center text-sm">

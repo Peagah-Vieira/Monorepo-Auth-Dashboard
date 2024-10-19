@@ -55,6 +55,7 @@ export default function ForgotPasswordForm() {
             <SubmitButton
                 type="submit"
                 disabled={processing}
+                variant={"default"}
                 label={
                     processing ? <LoadingSpinner /> : "Send Password Reset Link"
                 }
