@@ -1,10 +1,13 @@
-import InputError from "@/Components/InputError";
-import InputLabel from "@/Components/InputLabel";
-import PrimaryButton from "@/Components/PrimaryButton";
-import TextInput from "@/Components/TextInput";
-import GuestLayout from "@/Layouts/GuestLayout";
-import { Head, useForm } from "@inertiajs/react";
-import { FormEventHandler } from "react";
+import ResetPasswordForm from "@/Components/Auth/Forms/ResetPasswordForm";
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from "@/Components/ShadcnUI/card";
+import Guest from "@/Layouts/GuestLayout";
+import { Head } from "@inertiajs/react";
 
 export default function ResetPassword({
     token,
@@ -13,88 +16,25 @@ export default function ResetPassword({
     token: string;
     email: string;
 }) {
-    const { data, setData, post, processing, errors, reset } = useForm({
-        token: token,
-        email: email,
-        password: "",
-        password_confirmation: "",
-    });
-
-    const submit: FormEventHandler = (e) => {
-        e.preventDefault();
-
-        post(route("password.store"), {
-            onFinish: () => reset("password", "password_confirmation"),
-        });
-    };
-
     return (
-        <GuestLayout>
+        <Guest>
             <Head title="Reset Password" />
-
-            <form onSubmit={submit}>
-                <div>
-                    <InputLabel htmlFor="email" value="Email" />
-
-                    <TextInput
-                        id="email"
-                        type="email"
-                        name="email"
-                        value={data.email}
-                        className="mt-1 block w-full"
-                        autoComplete="username"
-                        onChange={(e) => setData("email", e.target.value)}
-                    />
-
-                    <InputError message={errors.email} className="mt-2" />
-                </div>
-
-                <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
-
-                    <TextInput
-                        id="password"
-                        type="password"
-                        name="password"
-                        value={data.password}
-                        className="mt-1 block w-full"
-                        autoComplete="new-password"
-                        isFocused={true}
-                        onChange={(e) => setData("password", e.target.value)}
-                    />
-
-                    <InputError message={errors.password} className="mt-2" />
-                </div>
-
-                <div className="mt-4">
-                    <InputLabel
-                        htmlFor="password_confirmation"
-                        value="Confirm Password"
-                    />
-
-                    <TextInput
-                        type="password"
-                        name="password_confirmation"
-                        value={data.password_confirmation}
-                        className="mt-1 block w-full"
-                        autoComplete="new-password"
-                        onChange={(e) =>
-                            setData("password_confirmation", e.target.value)
-                        }
-                    />
-
-                    <InputError
-                        message={errors.password_confirmation}
-                        className="mt-2"
-                    />
-                </div>
-
-                <div className="mt-4 flex items-center justify-end">
-                    <PrimaryButton className="ms-4" disabled={processing}>
-                        Reset Password
-                    </PrimaryButton>
-                </div>
-            </form>
-        </GuestLayout>
+            <div className="flex h-full w-full items-center justify-center">
+                <Card className="w-full max-w-lg rounded-lg bg-white p-4 shadow-sm">
+                    <CardHeader className="text-left">
+                        <CardTitle className="text-2xl">
+                            Reset Password
+                        </CardTitle>
+                        <CardDescription className="mt-2">
+                            Enter your email and new password. Don’t forget to
+                            confirm your new password!
+                        </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <ResetPasswordForm token={token} email={email} />
+                    </CardContent>
+                </Card>
+            </div>
+        </Guest>
     );
 }
