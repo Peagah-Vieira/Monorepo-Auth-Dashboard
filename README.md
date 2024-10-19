@@ -12,6 +12,13 @@
 
 ---
 
+## Demo
+
+Check out the demonstration video showcasing the authentication functionality of my full-stack project built with
+Laravel and React via Inertia.js:
+
+[Watch the Authentication Demo](https://www.youtube.com/watch?v=rldq3WAU-xg)
+
 ## Implemented Features
 
 ### Core Technologies
