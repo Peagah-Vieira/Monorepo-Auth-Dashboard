@@ -9,6 +9,7 @@ help:
 
 up:
 	./vendor/bin/sail up -d --remove-orphans
+	make npm-dev
 
 stop:
 	./vendor/bin/sail stop

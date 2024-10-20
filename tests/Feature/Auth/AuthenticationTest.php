@@ -10,6 +10,8 @@ class AuthenticationTest extends TestCase
 {
     use RefreshDatabase;
 
+    private const LOGIN_MAX_ATTEMPTS = 5;
+
     public function test_login_screen_can_be_rendered(): void
     {
         $response = $this->get('/login');
@@ -50,5 +52,33 @@ class AuthenticationTest extends TestCase
 
         $this->assertGuest();
         $response->assertRedirect('/');
+    }
+
+    public function test_rate_limiting_after_multiple_failed_login_attempts(): void
+    {
+        $user = User::factory()->create();
+
+        for ($i = 0; $i < self::LOGIN_MAX_ATTEMPTS; $i++) {
+            $response = $this->post('/login', [
+                'email' => $user->email,
+                'password' => 'wrong-password',
+            ]);
+
+            $response->assertStatus(302);
+        }
+
+        $response = $this->post('/login', [
+            'email' => $user->email,
+            'password' => 'wrong-password',
+        ]);
+
+        $response->assertStatus(302);
+
+        $response->assertSessionHasErrors([
+            'email' => trans('auth.throttle', [
+                'seconds' => 59,
+                'minutes' => 1,
+            ]),
+        ]);
     }
 }
