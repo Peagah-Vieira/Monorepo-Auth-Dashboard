@@ -1,26 +1,39 @@
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
+import AuthLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
+import { Skeleton } from "@/Components/ShadcnUI/skeleton";
 
 export default function Dashboard() {
     return (
-        <AuthenticatedLayout
-            header={
-                <h2 className="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
-                    Dashboard
-                </h2>
-            }
-        >
+        <AuthLayout>
             <Head title="Dashboard" />
-
-            <div className="py-12">
-                <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                    <div className="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
-                        <div className="p-6 text-gray-900 dark:text-gray-100">
-                            You're logged in!
-                        </div>
-                    </div>
+            <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                <div className="flex flex-col space-y-3">
+                    <Skeleton className="h-[250px] w-full rounded-xl" />
+                </div>
+                <div className="flex flex-col space-y-3">
+                    <Skeleton className="h-[250px] w-full rounded-xl" />
+                </div>
+                <div className="flex flex-col space-y-3">
+                    <Skeleton className="h-[250px] w-full rounded-xl" />
+                </div>
+                <div className="flex flex-col space-y-3">
+                    <Skeleton className="h-[250px] w-full rounded-xl" />
                 </div>
             </div>
-        </AuthenticatedLayout>
+            <div className="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                <div className="flex flex-col space-y-3">
+                    <Skeleton className="h-[250px] w-full rounded-xl" />
+                </div>
+                <div className="flex flex-col space-y-3">
+                    <Skeleton className="h-[250px] w-full rounded-xl" />
+                </div>
+                <div className="flex flex-col space-y-3">
+                    <Skeleton className="h-[250px] w-full rounded-xl" />
+                </div>
+                <div className="flex flex-col space-y-3">
+                    <Skeleton className="h-[250px] w-full rounded-xl" />
+                </div>
+            </div>
+        </AuthLayout>
     );
 }

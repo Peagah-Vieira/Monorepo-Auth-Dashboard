@@ -11,7 +11,7 @@ import {
 } from "react-hook-form";
 
 import { cn } from "@/lib/utils";
-import { Label } from "@/components/ui/label";
+import { Label } from "@/Components/ShadcnUI/label";
 
 const Form = FormProvider;
 
@@ -135,7 +135,7 @@ const FormDescription = React.forwardRef<
             ref={ref}
             id={formDescriptionId}
             className={cn(
-                "text-[0.8rem] text-slate-500 dark:text-slate-400",
+                "text-[0.8rem] text-stone-500 dark:text-stone-400",
                 className,
             )}
             {...props}

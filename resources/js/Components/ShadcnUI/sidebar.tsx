@@ -1,21 +1,21 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
-import { VariantProps, cva } from "class-variance-authority";
-import { PanelLeft } from "lucide-react";
+import { cva, VariantProps } from "class-variance-authority";
 
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
-import { Sheet, SheetContent } from "@/components/ui/sheet";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Button } from "@/Components/ShadcnUI/button";
+import { Input } from "@/Components/ShadcnUI/input";
+import { Separator } from "@/Components/ShadcnUI/separator";
+import { Sheet, SheetContent } from "@/Components/ShadcnUI//sheet";
+import { Skeleton } from "@/Components/ShadcnUI/skeleton";
 import {
     Tooltip,
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
-} from "@/components/ui/tooltip";
+} from "@/Components/ShadcnUI/tooltip";
+import { Menu, PanelLeftClose, PanelLeftOpen } from "lucide-react";
 
 const SIDEBAR_COOKIE_NAME = "sidebar:state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
@@ -276,13 +276,13 @@ const SidebarTrigger = React.forwardRef<
     React.ElementRef<typeof Button>,
     React.ComponentProps<typeof Button>
 >(({ className, onClick, ...props }, ref) => {
-    const { toggleSidebar } = useSidebar();
+    const { toggleSidebar, open, isMobile } = useSidebar();
 
     return (
         <Button
             ref={ref}
             data-sidebar="trigger"
-            variant="ghost"
+            variant="outline"
             size="icon"
             className={cn("h-7 w-7", className)}
             onClick={(event) => {
@@ -291,11 +291,18 @@ const SidebarTrigger = React.forwardRef<
             }}
             {...props}
         >
-            <PanelLeft />
+            {isMobile ? (
+                <Menu />
+            ) : open ? (
+                <PanelLeftClose />
+            ) : (
+                <PanelLeftOpen />
+            )}
             <span className="sr-only">Toggle Sidebar</span>
         </Button>
     );
 });
+
 SidebarTrigger.displayName = "SidebarTrigger";
 
 const SidebarRail = React.forwardRef<
@@ -335,8 +342,8 @@ const SidebarInset = React.forwardRef<
         <main
             ref={ref}
             className={cn(
-                "relative flex min-h-svh flex-1 flex-col bg-white dark:bg-slate-950",
-                "peer-data-[variant=inset]:min-h-[calc(100svh-theme(spacing.4))] md:peer-data-[variant=inset]:m-2 md:peer-data-[state=collapsed]:peer-data-[variant=inset]:ml-2 md:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:rounded-xl md:peer-data-[variant=inset]:shadow",
+                "relative flex min-h-screen flex-1 flex-col bg-white dark:bg-stone-950",
+                "peer-data-[variant=inset]:min-h-[calc(100vh-theme(spacing.4))] md:peer-data-[variant=inset]:m-0 md:peer-data-[state=collapsed]:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:shadow",
                 className,
             )}
             {...props}
@@ -354,7 +361,7 @@ const SidebarInput = React.forwardRef<
             ref={ref}
             data-sidebar="input"
             className={cn(
-                "h-8 w-full bg-white shadow-none focus-visible:ring-2 focus-visible:ring-sidebar-ring dark:bg-slate-950",
+                "h-8 w-full bg-white shadow-none focus-visible:ring-2 focus-visible:ring-sidebar-ring dark:bg-stone-950",
                 className,
             )}
             {...props}
@@ -535,7 +542,7 @@ const sidebarMenuButtonVariants = cva(
                 default:
                     "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
                 outline:
-                    "bg-white shadow-[0_0_0_1px_hsl(var(--sidebar-border))] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground hover:shadow-[0_0_0_1px_hsl(var(--sidebar-accent))] dark:bg-slate-950",
+                    "bg-white shadow-[0_0_0_1px_hsl(var(--sidebar-border))] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground hover:shadow-[0_0_0_1px_hsl(var(--sidebar-accent))] dark:bg-stone-950",
             },
             size: {
                 default: "h-8 text-sm",

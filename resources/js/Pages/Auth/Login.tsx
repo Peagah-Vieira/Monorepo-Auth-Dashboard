@@ -13,11 +13,13 @@ export default function LoginPage() {
     return (
         <Guest>
             <Head title="Login" />
-            <div className="flex h-full w-full items-center justify-center">
-                <Card className="w-full max-w-lg rounded-lg bg-white p-4 shadow-sm">
+            <div className="flex h-full w-full items-center justify-center bg-background">
+                <Card className="w-full max-w-lg rounded-lg bg-card p-4 shadow-sm">
                     <CardHeader className="text-left">
-                        <CardTitle className="text-2xl">Login</CardTitle>
-                        <CardDescription className="mt-2 text-sm">
+                        <CardTitle className="text-2xl text-primary-foreground">
+                            Login
+                        </CardTitle>
+                        <CardDescription className="mt-2 text-sm text-muted-foreground">
                             Sign in to your account to continue.
                         </CardDescription>
                     </CardHeader>

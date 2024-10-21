@@ -19,6 +19,8 @@ Laravel and React via Inertia.js:
 
 [Watch the Authentication Demo](https://www.youtube.com/watch?v=rldq3WAU-xg)
 
+[Watch the Dashboard Demo](https://www.youtube.com/watch?v=5ScQgsCSkS0)
+
 ## Implemented Features
 
 ### Core Technologies
@@ -43,6 +45,8 @@ Laravel and React via Inertia.js:
 
 - [x] **ShadcnUI**: Integrated with ShadcnUI for modern interface components, ensuring an appealing and efficient user
   experience.
+- [x] **Dashboard**: A complete dashboard with customizable features, ready for expansion and tailored to user needs.
+- [x] **Dark Mode**: Implemented dark theme for improved accessibility and visual comfort.
 
 ### Testing & Quality Assurance
 
@@ -56,12 +60,10 @@ Laravel and React via Inertia.js:
 ### Planned Features
 
 - [ ] **User Role Management**: A robust role and permission management system for granular access control.
-- [ ] **Dashboard**: A basic dashboard template will be provided, ready for customization and expansion as needed.
 - [ ] **OAuth Authentication**: We plan to add OAuth login support, making it easy to log in with third-party services
   like Google, Facebook, and GitHub.
 - [ ] **API Integration**: Support for integrating with external APIs, enabling the dashboard to display data and
   interact with other systems.
-- [ ] **Dark Mode**: Implement a dark theme for improved accessibility and visual comfort.
 - [ ] **Multi-language Support**: Multi-language support to make the template accessible globally.
 - [ ] **Modular UI Components**: Expand the UI components to allow easy customization and reuse, offering even more
   flexibility for interface creation.

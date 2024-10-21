@@ -1,10 +1,5 @@
 import * as React from "react";
 import * as RechartsPrimitive from "recharts";
-import {
-    NameType,
-    Payload,
-    ValueType,
-} from "recharts/types/component/DefaultTooltipContent";
 
 import { cn } from "@/lib/utils";
 
@@ -55,7 +50,7 @@ const ChartContainer = React.forwardRef<
                 data-chart={chartId}
                 ref={ref}
                 className={cn(
-                    "[&_.recharts-cartesian-axis-tick_text]:fill-muted-foreground [&_.recharts-cartesian-grid_line[stroke='#ccc']]:stroke-border/50 [&_.recharts-curve.recharts-tooltip-cursor]:stroke-border [&_.recharts-polar-grid_[stroke='#ccc']]:stroke-border [&_.recharts-radial-bar-background-sector]:fill-muted [&_.recharts-rectangle.recharts-tooltip-cursor]:fill-muted [&_.recharts-reference-line_[stroke='#ccc']]:stroke-border flex aspect-video justify-center text-xs [&_.recharts-dot[stroke='#fff']]:stroke-transparent [&_.recharts-layer]:outline-none [&_.recharts-sector[stroke='#fff']]:stroke-transparent [&_.recharts-sector]:outline-none [&_.recharts-surface]:outline-none",
+                    "flex aspect-video justify-center text-xs [&_.recharts-cartesian-axis-tick_text]:fill-muted-foreground [&_.recharts-cartesian-grid_line[stroke='#ccc']]:stroke-border/50 [&_.recharts-curve.recharts-tooltip-cursor]:stroke-border [&_.recharts-dot[stroke='#fff']]:stroke-transparent [&_.recharts-layer]:outline-none [&_.recharts-polar-grid_[stroke='#ccc']]:stroke-border [&_.recharts-radial-bar-background-sector]:fill-muted [&_.recharts-rectangle.recharts-tooltip-cursor]:fill-muted [&_.recharts-reference-line_[stroke='#ccc']]:stroke-border [&_.recharts-sector[stroke='#fff']]:stroke-transparent [&_.recharts-sector]:outline-none [&_.recharts-surface]:outline-none",
                     className,
                 )}
                 {...props}
@@ -184,7 +179,7 @@ const ChartTooltipContent = React.forwardRef<
             <div
                 ref={ref}
                 className={cn(
-                    "grid min-w-[8rem] items-start gap-1.5 rounded-lg border border-slate-200 border-slate-200/50 bg-white px-2.5 py-1.5 text-xs shadow-xl dark:border-slate-800 dark:border-slate-800/50 dark:bg-slate-950",
+                    "grid min-w-[8rem] items-start gap-1.5 rounded-lg border border-stone-200 border-stone-200/50 bg-white px-2.5 py-1.5 text-xs shadow-xl dark:border-stone-800 dark:border-stone-800/50 dark:bg-stone-950",
                     className,
                 )}
             >
@@ -204,7 +199,7 @@ const ChartTooltipContent = React.forwardRef<
                             <div
                                 key={item.dataKey}
                                 className={cn(
-                                    "flex w-full flex-wrap items-stretch gap-2 [&>svg]:h-2.5 [&>svg]:w-2.5 [&>svg]:text-slate-500 dark:[&>svg]:text-slate-400",
+                                    "flex w-full flex-wrap items-stretch gap-2 [&>svg]:h-2.5 [&>svg]:w-2.5 [&>svg]:text-stone-500 dark:[&>svg]:text-stone-400",
                                     indicator === "dot" && "items-center",
                                 )}
                             >
@@ -266,13 +261,13 @@ const ChartTooltipContent = React.forwardRef<
                                                 {nestLabel
                                                     ? tooltipLabel
                                                     : null}
-                                                <span className="text-slate-500 dark:text-slate-400">
+                                                <span className="text-stone-500 dark:text-stone-400">
                                                     {itemConfig?.label ||
                                                         item.name}
                                                 </span>
                                             </div>
                                             {item.value && (
-                                                <span className="font-mono font-medium tabular-nums text-slate-950 dark:text-slate-50">
+                                                <span className="font-mono font-medium tabular-nums text-stone-950 dark:text-stone-50">
                                                     {item.value.toLocaleString()}
                                                 </span>
                                             )}
@@ -336,7 +331,7 @@ const ChartLegendContent = React.forwardRef<
                         <div
                             key={item.value}
                             className={cn(
-                                "flex items-center gap-1.5 [&>svg]:h-3 [&>svg]:w-3 [&>svg]:text-slate-500 dark:[&>svg]:text-slate-400",
+                                "flex items-center gap-1.5 [&>svg]:h-3 [&>svg]:w-3 [&>svg]:text-stone-500 dark:[&>svg]:text-stone-400",
                             )}
                         >
                             {itemConfig?.icon && !hideIcon ? (

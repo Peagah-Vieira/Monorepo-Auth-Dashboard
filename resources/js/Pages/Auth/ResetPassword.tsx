@@ -20,12 +20,12 @@ export default function ResetPassword({
         <Guest>
             <Head title="Reset Password" />
             <div className="flex h-full w-full items-center justify-center">
-                <Card className="w-full max-w-lg rounded-lg bg-white p-4 shadow-sm">
+                <Card className="w-full max-w-lg rounded-lg bg-card p-4 shadow-sm">
                     <CardHeader className="text-left">
-                        <CardTitle className="text-2xl">
+                        <CardTitle className="text-2xl text-primary-foreground">
                             Reset Password
                         </CardTitle>
-                        <CardDescription className="mt-2">
+                        <CardDescription className="mt-2 text-muted-foreground">
                             Enter your email and new password. Don’t forget to
                             confirm your new password!
                         </CardDescription>

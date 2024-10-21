@@ -13,13 +13,13 @@ export default function VerifyEmail() {
     return (
         <Guest>
             <Head title="Email Verification" />
-            <div className="flex h-full w-full items-center justify-center">
-                <Card className="w-full max-w-lg rounded-lg bg-white p-4 shadow-sm">
+            <div className="flex h-full w-full items-center justify-center bg-background">
+                <Card className="w-full max-w-lg rounded-lg border border-border bg-card p-4 shadow-sm">
                     <CardHeader className="text-left">
-                        <CardTitle className="text-2xl">
+                        <CardTitle className="text-2xl text-primary-foreground">
                             Email Verification
                         </CardTitle>
-                        <CardDescription className="mt-2">
+                        <CardDescription className="mt-2 text-muted-foreground">
                             Thank you for signing up! Before getting started,
                             could you verify your email address by clicking the
                             link we just sent you? If you didn’t receive the

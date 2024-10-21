@@ -13,13 +13,13 @@ export default function Register() {
     return (
         <Guest>
             <Head title="Register" />
-            <div className="flex h-full w-full items-center justify-center">
-                <Card className="w-full max-w-lg rounded-lg bg-white p-4 shadow-sm">
+            <div className="flex h-full w-full items-center justify-center bg-background">
+                <Card className="w-full max-w-lg rounded-lg bg-card p-4 shadow-sm">
                     <CardHeader className="text-left">
-                        <CardTitle className="text-2xl">
+                        <CardTitle className="text-2xl text-primary-foreground">
                             Create Account
                         </CardTitle>
-                        <CardDescription>
+                        <CardDescription className="text-muted-foreground">
                             Fill in your information below to create an account.
                         </CardDescription>
                     </CardHeader>
